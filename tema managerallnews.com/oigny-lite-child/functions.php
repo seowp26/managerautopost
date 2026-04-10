@@ -257,3 +257,12 @@ function managerallnews_render_entity_profile_shortcode($atts = array()) {
 	return ob_get_clean();
 }
 add_shortcode('rm_entity_profile', 'managerallnews_render_entity_profile_shortcode');
+
+function managerallnews_output_deploy_test_marker() {
+	if (is_admin()) {
+		return;
+	}
+
+	echo "\n<!-- managerautopost child-theme deploy test: functions.php synced -->\n";
+}
+add_action('wp_footer', 'managerallnews_output_deploy_test_marker', 99);
